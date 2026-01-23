@@ -1,27 +1,45 @@
 <script lang="ts">
-	import Card from '../../components/molecules/Card.svelte';
-	import Timer from '../../components/molecules/Timer.svelte';
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
-	import type { GameItem, GamePlayer } from '../../types/interfaces/game';
+	import Card from '../../components/molecules/Card.svelte';
+	import Timer from '../../components/molecules/Timer.svelte';
+	import type { IGameItem, IGamePlayer } from '../../types/interfaces/game';
 	import { gameData } from './game.data';
+	import GameItem from '../../components/blocks/GameItem.svelte';
 
-	let currentPlayer: GamePlayer = gameData.players.pop()!;
+	const player_data = [...gameData.players];
+	const game_options = [...gameData.remit];
+
+	let options = $state(game_options.slice(0, 4 * 4));
+	let players = $state([...player_data]);
+	let currentPlayer: IGamePlayer = $state(players.pop()!);
+	let responses: Record<number, IGameItem> = $state({});
 
 	let timerComp: { reset: () => void }; // seconds
 
-	const options = gameData.remit.slice(0, 4 * 4);
-
-	const responses: Record<number, GameItem> = {};
-
 	const newRound = () => {
-		currentPlayer = gameData.players.pop()!;
+		const isGameOver = players.length === 0 || Object.keys(responses).length >= options.length;
+
+		if (isGameOver) {
+			window.location.href = resolve('/game/end');
+			return;
+		}
+
+		currentPlayer = players.pop()!;
 		timerComp?.reset();
 	};
 
-	const onOptionClick = (player: GameItem) => {
-		responses[currentPlayer.id] = player;
+	const onOptionClick = (item: IGameItem) => {
+		responses[currentPlayer.id] = item;
 		newRound();
+	};
+
+	const getResponse = (target: number): IGamePlayer | null => {
+		const id = Object.entries(responses).find(([, value]) => value.id === target)?.[0] || null;
+		if (!id) return null;
+		const out = player_data.find((player) => player.id === Number(id)) || null;
+		return out;
 	};
 </script>
 
@@ -32,7 +50,7 @@
 
 <section>
 	<h1>Game Page</h1>
-	<p>This is where the game will be played.</p>
+	<p class="mb-12">This is where the game will be played.</p>
 
 	<Card class="p-0!">
 		<div
@@ -53,30 +71,8 @@
 
 		<div class="grid grid-cols-4 grid-rows-4">
 			{#each options as option}
-				<Card
-					clickable
-					onclick={() => onOptionClick(option)}
-					rounded={false}
-					class="border-0! {!!responses[currentPlayer.id] ? 'active' : ''}"
-					disabled={!!responses[currentPlayer.id]}
-				>
-					<div class="flex h-full flex-col items-center justify-center text-sm">
-						{#if option.prefix}
-							<span class="mb-1 block italic">{option.prefix}</span>
-						{/if}
-						<span class="align-middle text-xl font-bold">{option.displayName}</span>
-						{#if option.suffix}
-							<span class="mt-1 block italic">{option.suffix}</span>
-						{/if}
-					</div>
-				</Card>
+				<GameItem {option} onclick={() => onOptionClick(option)} player={getResponse(option.id)} />
 			{/each}
 		</div>
 	</Card>
 </section>
-
-<style scoped>
-	.active {
-		background-color: red !important;
-	}
-</style>

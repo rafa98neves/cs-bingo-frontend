@@ -1,6 +1,6 @@
-import type { GameData } from '../../types/interfaces/game';
+import type { IGameData } from '../../types/interfaces/game';
 
-export const gameData: GameData = {
+export const gameData: IGameData = {
 	remit: [
 		{
 			id: 333,

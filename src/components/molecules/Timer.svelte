@@ -4,7 +4,7 @@
 
 	const { finish = null, duration = 60, ...rest } = $props();
 
-	let raf = 0;
+	let timeout = 0;
 	let startTs = 0;
 	let pausedAccum = 0;
 	let lastNow = 0;
@@ -19,7 +19,7 @@
 
 	const formatTime = (seconds: number) => {
 		const s = Math.max(0, Math.round(seconds));
-		const ss = (s % 60).toString().padStart(2, '0');
+		const ss = (s % duration).toString().padStart(2, duration.toString());
 		return ss;
 	};
 
@@ -35,19 +35,19 @@
 			finish?.();
 			return;
 		}
-		raf = requestAnimationFrame(step);
+		timeout = requestAnimationFrame(step);
 	};
 
 	const start = () => {
-		if (raf) return;
+		if (timeout) return;
 		startTs = lastNow || performance.now();
-		raf = requestAnimationFrame(step);
+		timeout = requestAnimationFrame(step);
 	};
 
 	const cancel = () => {
-		if (raf) {
-			cancelAnimationFrame(raf);
-			raf = 0;
+		if (timeout) {
+			cancelAnimationFrame(timeout);
+			timeout = 0;
 		}
 	};
 

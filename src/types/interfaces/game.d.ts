@@ -1,4 +1,4 @@
-export interface GameItem {
+export interface IGameItem {
 	id: number;
 	name: string;
 	type: number;
@@ -8,12 +8,12 @@ export interface GameItem {
 	prefix?: string;
 }
 
-export interface GamePlayer {
+export interface IGamePlayer {
 	id: number;
 	name: string;
 }
 
-export interface GameData {
-	remit: GameItem[];
-	players: GamePlayer[];
+export interface IGameData {
+	remit: IGameItem[];
+	players: IGamePlayer[];
 }

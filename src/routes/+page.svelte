@@ -46,6 +46,7 @@
 				disabled={option.disabled}
 				title={option.name}
 				description={option.description}
+				class={option.disabled ? 'opacity-50' : ''}
 				center={true}
 				onclick={onOptionClick(option.id)}
 			/>
