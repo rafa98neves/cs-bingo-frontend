@@ -1,0 +1,53 @@
+@use 'variables' as *;
+
+.h-full {
+	height: 100%;
+}
+.w-full {
+	width: 100%;
+}
+
+@each $direction in $directions {
+	@each $size in $sizes {
+		.p#{$direction}-#{$size} {
+			@if $direction == b {
+				padding-bottom: #{$size * 0.25}rem !important;
+			} @else if $direction == t {
+				padding-top: #{$size * 0.25}rem !important;
+			} @else if $direction == l {
+				padding-left: #{$size * 0.25}rem !important;
+			} @else if $direction == r {
+				padding-right: #{$size * 0.25}rem !important;
+			} @else if $direction == x {
+				padding-left: #{$size * 0.25}rem !important;
+				padding-right: #{$size * 0.25}rem !important;
+			} @else if $direction == y {
+				padding-top: #{$size * 0.25}rem !important;
+				padding-bottom: #{$size * 0.25}rem !important;
+			}
+		}
+		.m#{$direction}-#{$size} {
+			@if $direction == b {
+				margin-bottom: #{$size * 0.25}rem !important;
+			} @else if $direction == t {
+				margin-top: #{$size * 0.25}rem !important;
+			} @else if $direction == l {
+				margin-left: #{$size * 0.25}rem !important;
+			} @else if $direction == r {
+				margin-right: #{$size * 0.25}rem !important;
+			} @else if $direction == x {
+				margin-left: #{$size * 0.25}rem !important;
+				margin-right: #{$size * 0.25}rem !important;
+			} @else if $direction == y {
+				margin-top: #{$size * 0.25}rem !important;
+				margin-bottom: #{$size * 0.25}rem !important;
+			}
+		}
+	}
+}
+
+@each $size in $sizes {
+	.gap-#{$size} {
+		gap: #{$size * 0.25}rem;
+	}
+}

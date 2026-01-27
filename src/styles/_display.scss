@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+.block {
+	display: block;
+}
+.flex {
+	display: flex;
+}
+.flex-col {
+	flex-direction: column;
+}
+.inline-flex {
+	display: inline-flex;
+}
+.flex-row {
+	flex-direction: row;
+}
+.grid {
+	display: grid;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-items-between {
+	justify-items: space-between;
+}
+.items-center {
+	align-items: center;
+}
+.grid-flow-cols {
+	grid-auto-flow: column;
+}
+.grid-flow-rows {
+	grid-auto-flow: row;
+}
+.relative {
+	position: relative;
+}
+
+@each $number in $integers {
+	.grid-cols-#{$number} {
+		grid-template-columns: repeat(#{$number}, minmax(0, 1fr));
+	}
+	.grid-rows-#{$number} {
+		grid-template-rows: repeat(#{$number}, minmax(0, 1fr));
+	}
+}

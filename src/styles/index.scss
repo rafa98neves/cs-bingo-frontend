@@ -1,0 +1,20 @@
+@use '_appearance' as *;
+@use '_display' as *;
+@use '_smui-theme' as *;
+@use '_spacing' as *;
+@use '_text' as *;
+@use '_variables' as *;
+
+@use 'layout' as *;
+@use 'typography' as *;
+
+@use 'components' as *;
+
+html,
+body {
+	margin: 0;
+	background-color: $background;
+	color: $on-background;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

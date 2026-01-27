@@ -4,7 +4,7 @@
 
 <header>
 	<nav>
-		<a href={resolve('/')} class="logo">Bingo</a>
+		<a href={resolve('/')} class="logo">CS BINGO</a>
 	</nav>
 </header>
 
@@ -23,7 +23,7 @@
 	}
 
 	.logo {
-		font-size: 1.5rem;
+		font-size: 1rem;
 		font-weight: 700;
 		color: $primary;
 		text-decoration: none;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Card from '@/components/molecules/Card.svelte';
+	import Card from '@/components/molecules/card.svelte';
 	import { GAME_TYPE } from '@/types/enums/game';
 
 	const options = [
@@ -37,7 +37,7 @@
 <section>
 	<h1>CS Bingo</h1>
 
-	<h2 class="mb-24">What do you want to play today?</h2>
+	<h4 class="mb-24">What do you want to play today?</h4>
 
 	<div class="grid grid-flow-col grid-cols-{options.length} gap-12">
 		{#each options as option}
@@ -53,17 +53,3 @@
 		{/each}
 	</div>
 </section>
-
-<style scoped lang="scss">
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-</style>

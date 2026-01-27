@@ -2,11 +2,11 @@
 	import { resolve } from '$app/paths';
 	import Button from '@smui/button';
 	import { Icon } from '@smui/common';
-	import Card from '@/components/molecules/Card.svelte';
-	import Timer from '@/components/molecules/Timer.svelte';
+	import Card from '@/components/molecules/card.svelte';
+	import Timer from '@/components/molecules/timer.svelte';
 	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
 	import { gameData } from '../game.data';
-	import GameItem from '@/components/blocks/GameItem.svelte';
+	import GameItem from '@/components/blocks/game-item.svelte';
 
 	const player_data = [...gameData.players];
 	const game_options = [...gameData.remit];

@@ -8,7 +8,7 @@ export default defineConfig({
 			scss: {
 				quietDeps: true,
 				silenceDeprecations: ['color-functions'],
-				additionalData: `@use 'sass:map'; @use '/src/styles/_smui-theme.scss' as *;`
+				additionalData: `@use 'sass:map'; @use '/src/styles/_smui-theme.scss' as *; `
 			}
 		}
 	}

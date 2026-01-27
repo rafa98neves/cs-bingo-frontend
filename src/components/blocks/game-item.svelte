@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Card from '@/components/molecules/Card.svelte';
+	import Card from '@/components/molecules/card.svelte';
 	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
+
 	interface Props {
 		option: IGameItem;
 		onclick: () => void;
