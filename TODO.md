@@ -5,6 +5,7 @@ Functional:
 [] End game results
 [] Skip choice
 [] Flow between screens
+[] Create data stores
 
 [] Fix theme
 [] remove tailwind

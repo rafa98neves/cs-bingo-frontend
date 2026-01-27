@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+@each $opacity in $transparencies {
+	.opacity-#{$opacity} {
+		opacity: var(--#{$opacity});
+	}
+}

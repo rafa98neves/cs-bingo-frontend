@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Card from '../components/molecules/Card.svelte';
-	import { GAME_TYPE } from '../types/enums/game';
+	import Card from '@/components/molecules/Card.svelte';
+	import { GAME_TYPE } from '@/types/enums/game';
 
 	const options = [
 		{
@@ -23,7 +23,7 @@
 				// Currently disabled
 				return;
 			case GAME_TYPE.WITH_FRIENDS:
-				window.location.href = resolve('/game');
+				window.location.href = resolve('/game/start');
 				break;
 		}
 	};
@@ -54,7 +54,7 @@
 	</div>
 </section>
 
-<style scoped>
+<style scoped lang="scss">
 	section {
 		display: flex;
 		flex-direction: column;

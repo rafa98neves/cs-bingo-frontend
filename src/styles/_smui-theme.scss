@@ -1,0 +1,97 @@
+@use 'sass:color';
+
+@use '@material/theme/color-palette';
+
+// Minimalistic & Clean Dark Color Scheme
+// Primary: Deep Blue-Gray for calm, professional aesthetic
+// Secondary: Muted Forest Green for subtle contrast
+// Dark palette with carefully selected grays
+
+// Additional custom color variables for extended palette
+$primary: #6b8fb8;
+$secondary: #7a9b7f;
+$error: #e76f6f; // Soft red
+$background: #0f1419; // Deep dark background
+$tertiary: #b592b8; // Muted lavender
+$surface: #1a1f26; // Slightly lighter surface
+$surface-variant: #252c35; // Even lighter surface variant
+$warning: #e8a857; // Warm amber
+$success: #6daf8c; // Muted green
+$info: #6b9bd1; // Calm blue
+$on-primary: #0f1419;
+$on-secondary: #0f1419;
+$on-surface: #e8edf2; // Light gray
+$on-background: #d1d9e0; // Soft white
+$on-error: #0f1419;
+
+@use '@material/theme/index' as theme with (
+	$primary: $primary,
+	// Deep blue-gray
+	$secondary: $secondary,
+	// Muted forest green
+	$surface: $surface,
+	// Dark surface
+	$background: $background,
+	// Deep dark background
+	$error: $error // Soft red
+);
+
+$colors: (
+	// Neutral scale (inverted for dark mode)
+	'neutral-50': #0f1419,
+	'neutral-100': #1a1f26,
+	'neutral-200': #252c35,
+	'neutral-300': #313a45,
+	'neutral-400': #4a5563,
+	'neutral-500': #6b7885,
+	'neutral-600': #8b95a1,
+	'neutral-700': #a8b0ba,
+	'neutral-800': #c5cbd3,
+	'neutral-900': #e8edf2,
+
+	// Primary scale
+	'primary-50': #0d1317,
+	'primary-100': #1a2530,
+	'primary-200': #2d3f52,
+	'primary-300': #405974,
+	'primary-400': #567496,
+	'primary-500': #6b8fb8,
+	'primary-600': #85a5c6,
+	'primary-700': #9fb9d4,
+	'primary-800': #b9cee2,
+	'primary-900': #d3e2f0,
+
+	// Secondary scale
+	'secondary-50': #121614,
+	'secondary-100': #1f2822,
+	'secondary-200': #344336,
+	'secondary-300': #4a5e4b,
+	'secondary-400': #627d65,
+	'secondary-500': #7a9b7f,
+	'secondary-600': #93ae96,
+	'secondary-700': #abc1ad,
+	'secondary-800': #c4d4c5,
+	'secondary-900': #dce7dc,
+
+	// Accent colors
+	'accent-blue': #6b9bd1,
+	'accent-purple': #b592b8,
+	'accent-pink': #d89bb4,
+	'accent-orange': #d99a6c,
+	'accent-teal': #70b5b0,
+
+	// Functional
+	'border': #313a45,
+	'divider': #3d4755,
+	'shadow': rgba(0, 0, 0, 0.3),
+	'overlay': rgba(0, 0, 0, 0.7)
+);
+
+html,
+body {
+	margin: 0;
+	background-color: theme.$background;
+	color: $on-background;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

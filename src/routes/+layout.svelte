@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Header from '../components/blocks/Header.svelte';
-	import './layout.css';
+	import Header from '@/components/blocks/Header.svelte';
+	import '@/styles/base.scss';
 
 	let { children } = $props();
 </script>
@@ -17,7 +17,7 @@
 	</footer>
 </div>
 
-<style scoped>
+<style scoped lang="scss">
 	.app {
 		display: flex;
 		flex-direction: column;
@@ -41,5 +41,11 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	footer p {
+		color: rgba(255, 255, 255, 0.5);
+		margin: 0;
 	}
 </style>

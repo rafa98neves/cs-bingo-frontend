@@ -2,7 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	const { finish = null, duration = 60, ...rest } = $props();
+	const { finish = null, duration = 10, ...rest } = $props();
 
 	let timeout = 0;
 	let startTs = 0;
@@ -87,8 +87,8 @@
 
 		<defs>
 			<linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-				<stop offset="0%" stop-color="#7c3aed" stop-opacity="0.95"></stop>
-				<stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9"></stop>
+				<stop offset="0%" stop-color="#6B8FB8" stop-opacity="0.95"></stop>
+				<stop offset="100%" stop-color="#7A9B7F" stop-opacity="0.9"></stop>
 			</linearGradient>
 		</defs>
 
@@ -119,13 +119,12 @@
 	</svg>
 
 	<!-- center content -->
-	<div class="timer-text font-mono font-semibold text-slate-900" aria-live="polite">
+	<div class="timer-text font-mono font-semibold" aria-live="polite">
 		{$remaining !== undefined ? formatTime($remaining) : formatTime(duration)}
 	</div>
 </div>
 
-<style>
-	/* lightweight fallback styles and smooth text rendering */
+<style scoped lang="scss">
 	.timer-wrap {
 		width: 100%;
 		-webkit-font-smoothing: antialiased;
@@ -141,6 +140,8 @@
 		}
 		.timer-text {
 			user-select: none;
+			color: map.get($colors, 'neutral-900');
+			font-size: 1rem;
 		}
 	}
 </style>

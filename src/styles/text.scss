@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+// Variable maps
+$size-map: (
+	xs: 0.75rem,
+	sm: 0.875rem,
+	md: 1rem,
+	lg: 1.125rem,
+	xl: 1.25rem
+);
+
+// Utility classes
+.font-light {
+	font-weight: 200;
+}
+.font-bold {
+	font-weight: 700;
+}
+.font-normal {
+	font-weight: 400;
+}
+.text-italic {
+	font-style: italic;
+}
+.text-underline {
+	text-decoration: underline;
+}
+
+@each $align-item in $align {
+	.text-#{$align-item} {
+		text-align: $align-item;
+	}
+}
+@each $size-name, $size-value in $size-map {
+	.text-#{$size-name} {
+		font-size: $size-value;
+	}
+}

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Button, Spinner } from 'flowbite-svelte';
-	import { ArrowRightOutline } from 'flowbite-svelte-icons';
+	import Button from '@smui/button';
+	import CircularProgress from '@smui/circular-progress';
+	import { Icon } from '@smui/common';
 
 	let resolveData = false;
 
@@ -11,13 +12,13 @@
 <section>
 	{#if !resolveData}
 		<h1 class="mb-12">Waiting game results...</h1>
-		<Spinner />
+		<CircularProgress style="height: 32px; width: 32px;" indeterminate />
 	{:else}
 		<h1 class="mb-12">Game Over</h1>
 		<p class="mb-4">The game has ended. Here are the results:</p>
-		<Button href={resolve('/')} class="mt-4 border-none">
+		<Button href={resolve('/')} class="mt-4" variant="raised">
 			Go to Home
-			<ArrowRightOutline size="sm" class="me-2 h-4 w-4" />
+			<Icon class="material-icons">arrow_forward</Icon>
 		</Button>
 	{/if}
 </section>

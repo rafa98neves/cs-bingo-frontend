@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Button } from 'flowbite-svelte';
-	import { ArrowRightOutline } from 'flowbite-svelte-icons';
-	import Card from '../../components/molecules/Card.svelte';
-	import Timer from '../../components/molecules/Timer.svelte';
-	import type { IGameItem, IGamePlayer } from '../../types/interfaces/game';
-	import { gameData } from './game.data';
-	import GameItem from '../../components/blocks/GameItem.svelte';
+	import Button from '@smui/button';
+	import { Icon } from '@smui/common';
+	import Card from '@/components/molecules/Card.svelte';
+	import Timer from '@/components/molecules/Timer.svelte';
+	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
+	import { gameData } from '../game.data';
+	import GameItem from '@/components/blocks/GameItem.svelte';
 
 	const player_data = [...gameData.players];
 	const game_options = [...gameData.remit];
@@ -60,9 +60,9 @@
 			<div class="col-span-4">{currentPlayer.name}</div>
 			<div class="flex flex-col items-end">
 				<div>
-					<Button color="alternative" onclick={newRound} class="border-none">
+					<Button onclick={newRound} variant="raised">
 						Skip
-						<ArrowRightOutline size="sm" class="me-2 h-4 w-4" />
+						<Icon class="material-icons">arrow_forward</Icon>
 					</Button>
 				</div>
 				<div class="text-sm text-slate-400">{gameData.players.length} remaining</div>
