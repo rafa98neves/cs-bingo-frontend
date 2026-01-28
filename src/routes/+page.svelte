@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Card from '@/components/molecules/card.svelte';
+	import { fade } from 'svelte/transition';
 	import { GAME_TYPE } from '@/types/enums/game';
+	import Card from '@/components/molecules/card.svelte';
+	import FadeId from '@/components/transitions/fade-in.svelte';
 
 	const options = [
 		{
@@ -35,8 +37,12 @@
 </svelte:head>
 
 <section>
+	<FadeId>
+		{#snippet children()}
+			<img class="bingo-image" alt="CS Bingo" src="favicon.png" transition:fade|global />
+		{/snippet}
+	</FadeId>
 	<h1>CS Bingo</h1>
-
 	<h4 class="mb-24">What do you want to play today?</h4>
 
 	<div class="grid grid-flow-col grid-cols-{options.length} gap-12">
@@ -53,3 +59,11 @@
 		{/each}
 	</div>
 </section>
+
+<style lang="scss" scoped>
+	.bingo-image {
+		width: 6rem;
+		height: 6rem;
+		margin-bottom: 1rem;
+	}
+</style>

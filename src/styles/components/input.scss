@@ -1,5 +1,10 @@
+@use '../_smui-theme' as *;
+
 .mdc-text-field {
 	&.rounded {
 		border-radius: 8px;
+	}
+	&--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+		color: $primary !important;
 	}
 }

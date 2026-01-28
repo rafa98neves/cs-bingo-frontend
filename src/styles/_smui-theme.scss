@@ -21,6 +21,7 @@ $info: #6b9bd1; // Calm blue
 $on-primary: #0f1419;
 $on-secondary: #0f1419;
 $on-surface: #e8edf2; // Light gray
+$on-white: #fff; // Light gray
 $on-background: #d1d9e0; // Soft white
 $on-error: #0f1419;
 
@@ -119,6 +120,9 @@ $colors: (
 	--mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
 	--mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.38);
 	--mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
+
+	// MDC Component Specific Variables
+	--mdc-text-button-disabled-label-text-color: rgba(255, 255, 255, 0.38);
 
 	// Layout grid spacing
 	--mdc-layout-grid-margin-desktop: 24px;

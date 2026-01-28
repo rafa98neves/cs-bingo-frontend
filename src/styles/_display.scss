@@ -44,4 +44,10 @@
 	.grid-rows-#{$number} {
 		grid-template-rows: repeat(#{$number}, minmax(0, 1fr));
 	}
+	.col-span-#{$number} {
+		grid-column: span #{$number} / span #{$number};
+	}
+	.row-span-#{$number} {
+		grid-row: span #{$number} / span #{$number};
+	}
 }

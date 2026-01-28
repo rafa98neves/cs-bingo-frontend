@@ -4,7 +4,7 @@
 	import Button from '@smui/button';
 	import CircularProgress from '@smui/circular-progress';
 	import Textfield from '@smui/textfield';
-	import { Icon } from '@smui/common';
+	import { Icon, Label } from '@smui/common';
 
 	let username = '';
 	let startingGame = false;
@@ -20,18 +20,19 @@
 <section>
 	<div class="container">
 		{#if !startingGame}
+			<h1 class="mb-6">Who are you?</h1>
 			<Textfield
 				variant="filled"
 				bind:value={username}
 				label="Enter your username"
 				class="rounded mb-8 w-full"
 			/>
-			<Button onclick={startGame} variant="raised">
-				Start Game
+			<Button onclick={startGame} disabled={username.trim() === ''}>
+				<Label>Start Game</Label>
 				<Icon class="material-icons">arrow_forward</Icon>
 			</Button>
 		{:else}
-			<h1 class="mb-12">Waiting for game to start...</h1>
+			<h3 class="mb-12">Waiting for game to start...</h3>
 			<CircularProgress indeterminate />
 		{/if}
 	</div>

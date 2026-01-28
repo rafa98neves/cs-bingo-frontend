@@ -50,4 +50,10 @@
 	.gap-#{$size} {
 		gap: #{$size * 0.25}rem;
 	}
+	.h-#{$size} {
+		height: #{$size * 0.25}rem;
+	}
+	.w-#{$size} {
+		width: #{$size * 0.25}rem;
+	}
 }

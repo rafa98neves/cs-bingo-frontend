@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from '@/components/molecules/card.svelte';
+	import { generateClassName } from '@/helpers/class-generator';
 	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
 
 	interface Props {
@@ -9,15 +10,16 @@
 	}
 
 	let { option, onclick, player = null }: Props = $props();
-
-	const optionClasses = () => {
-		let classes = 'duration-300 ease-in border-0!';
-		return player ? ` bg-secondary-100  ${classes} active` : classes;
-	};
 </script>
 
-<Card clickable {onclick} rounded={false} class={optionClasses()} disabled={!!player}>
-	<div class="flex h-full flex-col items-center justify-center text-center text-sm">
+<Card
+	clickable
+	{onclick}
+	rounded={false}
+	class={generateClassName({ 'card-item': true, active: !!player })}
+	disabled={!!player}
+>
+	<div class="flex h-24 flex-col items-center justify-center text-center text-sm">
 		{#if player}
 			<span class="mt-2 text-center text-xl font-bold">{player.name}</span>
 			<span class="align-middle text-sm">{option.displayName}</span>
@@ -32,3 +34,17 @@
 		{/if}
 	</div>
 </Card>
+
+<style scoped lang="scss">
+	:global {
+		.c-Card {
+			box-shadow: none !important;
+
+			&.active {
+				/* background-color: map.get($colors, 'accent-teal') !important;
+				border-color: $on-white !important;
+				color: $on-white !important; */
+			}
+		}
+	}
+</style>
