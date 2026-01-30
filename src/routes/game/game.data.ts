@@ -1,4 +1,4 @@
-import type { IGameData } from '@/types/interfaces/game';
+import type { IGameData } from '$lib/types/interfaces/game';
 
 export const gameData: IGameData = {
 	remit: [

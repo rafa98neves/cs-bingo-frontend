@@ -3,10 +3,10 @@
 	import Button from '@smui/button';
 	import { Icon, Label } from '@smui/common';
 	import { gameData } from '../game.data';
-	import Card from '@/components/molecules/card.svelte';
-	import Timer from '@/components/molecules/timer.svelte';
-	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
-	import GameItem from '@/components/blocks/game-item.svelte';
+	import Card from '$lib/components/molecules/card.svelte';
+	import Timer from '$lib/components/molecules/timer.svelte';
+	import type { IGameItem, IGamePlayer } from '$lib/types/interfaces/game';
+	import GameItem from '$lib/components/blocks/game-item.svelte';
 
 	const player_data = [...gameData.players];
 	const game_options = [...gameData.remit];

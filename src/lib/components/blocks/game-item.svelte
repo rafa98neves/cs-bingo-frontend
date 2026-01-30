@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Card from '@/components/molecules/card.svelte';
-	import { generateClassName } from '@/helpers/class-generator';
-	import type { IGameItem, IGamePlayer } from '@/types/interfaces/game';
+	import Card from '@/lib/components/molecules/card.svelte';
+	import { generateClassName } from '@/lib/helpers/class.helper';
+	import type { IGameItem, IGamePlayer } from '@/lib/types/interfaces/game';
 
 	interface Props {
 		option: IGameItem;

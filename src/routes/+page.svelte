@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { fade } from 'svelte/transition';
-	import { GAME_TYPE } from '@/types/enums/game';
-	import Card from '@/components/molecules/card.svelte';
-	import FadeId from '@/components/transitions/fade-in.svelte';
+	import { GAME_TYPE } from '$lib/types/enums/game';
+	import Card from '$lib/components/molecules/card.svelte';
+	import FadeId from '$lib/components/transitions/fade-in.svelte';
 
 	const options = [
 		{
