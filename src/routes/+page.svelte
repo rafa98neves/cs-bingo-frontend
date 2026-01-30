@@ -25,7 +25,7 @@
 				// Currently disabled
 				return;
 			case GAME_TYPE.WITH_FRIENDS:
-				window.location.href = resolve('/game/start');
+				window.location.href = resolve('/game');
 				break;
 		}
 	};

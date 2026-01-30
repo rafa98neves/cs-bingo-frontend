@@ -7,7 +7,7 @@
 		"dev": "vite dev",
 		"build": "npm run prepare && vite build",
 		"preview": "vite preview",
-		"prepare": "smui-theme compile src/lib/smui.css -i src/styles",
+		"prepare": "smui-theme compile static/smui.css -i src/styles",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
