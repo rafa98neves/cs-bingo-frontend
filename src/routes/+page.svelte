@@ -42,7 +42,7 @@
 			<img class="bingo-image" alt="CS Bingo" src="favicon.png" transition:fade|global />
 		{/snippet}
 	</FadeId>
-	<h1>CS Bingo</h1>
+	<h1>CS Bingo II</h1>
 	<h4 class="mb-24">What do you want to play today?</h4>
 
 	<div class="grid grid-flow-col grid-cols-{options.length} gap-12">
