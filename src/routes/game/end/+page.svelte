@@ -2,7 +2,7 @@
 	import { resolve } from '$app/paths';
 	import Button from '@smui/button';
 	import CircularProgress from '@smui/circular-progress';
-	import { Icon } from '@smui/common';
+	import { Icon, Label } from '@smui/common';
 
 	let resolveData = false;
 
@@ -17,7 +17,7 @@
 		<h1 class="mb-12">Game Over</h1>
 		<p class="mb-4">The game has ended. Here are the results:</p>
 		<Button href={resolve('/')} class="mt-4" variant="raised">
-			Go to Home
+			<Label>Go to Home</Label>
 			<Icon class="material-icons">arrow_forward</Icon>
 		</Button>
 	{/if}
